@@ -13,10 +13,13 @@ class LocalCache implements CcpCache {
 
 	@SuppressWarnings("unchecked")
 	private Object get(String key) {
+		
 		boolean itIsMissingFields = localCache.containsAllFields(key) == false;
+	
 		if(itIsMissingFields) {
-			return CcpConstants.EMPTY_JSON;
+			return null;
 		}
+		
 		Object object = localCache.get(key);
 
 		boolean isNotMap = object instanceof Map == false;
