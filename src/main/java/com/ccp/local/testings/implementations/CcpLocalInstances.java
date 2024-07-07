@@ -13,6 +13,12 @@ import com.ccp.implementations.instant.messenger.telegram.CcpTelegramInstantMess
 import com.ccp.implementations.json.gson.CcpGsonJsonHandler;
 
 public enum CcpLocalInstances implements CcpInstanceProvider<Object>{
+	email {
+		public Object getInstance() {
+			LocalEmailSender localEmailSender = new LocalEmailSender();
+			return localEmailSender;
+		}
+	},
 	cache {
 		public Object getInstance() {
 			LocalCache localCache = new LocalCache();
@@ -20,7 +26,7 @@ public enum CcpLocalInstances implements CcpInstanceProvider<Object>{
 		}
 	}, bucket {
 		public Object getInstance() {
-			return null;
+			return new LocalBucket();
 		}
 	}, mensageriaSender {
 		public Object getInstance() {
