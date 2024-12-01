@@ -9,7 +9,7 @@ class LocalBucket implements CcpFileBucket{
 
 	public String get(String tenant, String bucketName, String fileName) {
 		CcpFileDecorator file = this.getFile(bucketName, fileName);
-		String extractStringContent = file.extractStringContent();
+		String extractStringContent = file.getStringContent();
 		return extractStringContent;
 	}
 
