@@ -51,7 +51,7 @@ class LocalCache implements CcpCache {
 		
 	}
 	@SuppressWarnings("unchecked")
-	private Object get(String key) {
+	public Object get(String key) {
 		
 		boolean itIsMissingFields = localCache.containsAllFields(key) == false;
 	
