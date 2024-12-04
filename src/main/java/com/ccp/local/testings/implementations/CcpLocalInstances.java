@@ -19,12 +19,7 @@ public enum CcpLocalInstances implements CcpInstanceProvider<Object>{
 			return localEmailSender;
 		}
 	},
-	cache {
-		public Object getInstance() {
-			LocalCache localCache = new LocalCache();
-			return localCache;
-		}
-	}, bucket {
+	bucket {
 		public Object getInstance() {
 			return new LocalBucket();
 		}

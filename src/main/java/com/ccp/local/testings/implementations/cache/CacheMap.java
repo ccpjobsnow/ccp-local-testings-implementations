@@ -1,11 +1,10 @@
-package com.ccp.local.testings.implementations;
+package com.ccp.local.testings.implementations.cache;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import com.ccp.constantes.CcpConstants;
@@ -13,7 +12,8 @@ import com.ccp.decorators.CcpJsonRepresentation;
 import com.ccp.decorators.CcpTimeDecorator;
 import com.ccp.especifications.cache.CcpCache;
 
-class LocalCache implements CcpCache {
+class CacheMap implements CcpCache {
+	
 	private static CcpJsonRepresentation expirations = CcpConstants.EMPTY_JSON;
 	private static CcpJsonRepresentation localCache = CcpConstants.EMPTY_JSON;
 
@@ -68,51 +68,7 @@ class LocalCache implements CcpCache {
 		return object;
 	}
 
-	@SuppressWarnings("unchecked")
-	public <V> V get(String key, CcpJsonRepresentation json, Function<CcpJsonRepresentation, V> taskToGetValue, int cacheSeconds) {
 
-		Object object = this.get(key);
-
-		if (object != null) {
-			return (V) object;
-		}
-		V value = taskToGetValue.apply(json);
-		this.put(key, value, cacheSeconds);
-
-		return value;
-	}
-
-	@SuppressWarnings("unchecked")
-	
-	public <V> V getOrDefault(String key, V defaultValue) {
-		Object object = this.get(key);
-		
-		if(object == null) {
-			return defaultValue;
-		}
-		return (V) object;
-		
-	}
-
-	@SuppressWarnings("unchecked")
-	
-	public <V> V getOrThrowException(String key, RuntimeException e) {
-		Object object = this.get(key);
-		
-		if(object == null) {
-			throw e;
-		}
-		
-		return (V) object;
-	}
-
-	
-	public boolean isPresent(String key) {
-		boolean isPresent = this.get(key) != null;
-		return isPresent;
-	}
-
-	
 	public void put(String key, Object value, int secondsDelay) {
 		
 		if(value instanceof CcpJsonRepresentation json) {
@@ -124,7 +80,6 @@ class LocalCache implements CcpCache {
 	}
 
 	@SuppressWarnings("unchecked")
-	
 	public <V> V delete(String key) {
 		
 		V t = (V) this.get(key);
