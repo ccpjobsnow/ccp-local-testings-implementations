@@ -70,7 +70,7 @@ class CacheMap implements CcpCache {
 
 
 	public void put(String key, Object value, int secondsDelay) {
-		
+
 		if(value instanceof CcpJsonRepresentation json) {
 			value = new LinkedHashMap<>(json.content);
 		}

@@ -6,19 +6,18 @@ class CacheEndpoint implements CcpCache {
 
 	@Override
 	public Object get(String key) {
-		// TODO Auto-generated method stub
+		// DOUBT
 		return null;
 	}
 
 	@Override
 	public void put(String key, Object value, int secondsDelay) {
-		// TODO Auto-generated method stub
-
+		// DOUBT
 	}
 
 	@Override
 	public <V> V delete(String key) {
-		// TODO Auto-generated method stub
+		// DOUBT
 		return null;
 	}
 
