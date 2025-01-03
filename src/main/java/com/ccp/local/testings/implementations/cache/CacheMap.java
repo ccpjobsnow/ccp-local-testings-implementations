@@ -6,15 +6,15 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.ccp.constantes.CcpConstants;
+import com.ccp.constantes.CcpOtherConstants;
 import com.ccp.decorators.CcpJsonRepresentation;
 import com.ccp.decorators.CcpTimeDecorator;
 import com.ccp.especifications.cache.CcpCache;
 
 class CacheMap implements CcpCache {
 	
-	private static CcpJsonRepresentation expirations = CcpConstants.EMPTY_JSON;
-	private static CcpJsonRepresentation localCache = CcpConstants.EMPTY_JSON;
+	private static CcpJsonRepresentation expirations = CcpOtherConstants.EMPTY_JSON;
+	private static CcpJsonRepresentation localCache = CcpOtherConstants.EMPTY_JSON;
 
 	@SuppressWarnings("unchecked")
 	public synchronized Object get(String key) {
