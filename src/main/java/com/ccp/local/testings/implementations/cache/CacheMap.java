@@ -65,7 +65,7 @@ class CacheMap implements CcpCache {
 	}
 
 
-	public void put(String key, Object value, int secondsDelay) {
+	public CcpCache put(String key, Object value, int secondsDelay) {
 
 		if(value instanceof CcpJsonRepresentation json) {
 			value = new LinkedHashMap<>(json.content);
@@ -74,6 +74,7 @@ class CacheMap implements CcpCache {
 		long expiration = System.currentTimeMillis() + (secondsDelay * 1000);
 		expirations = expirations.addToList("" + expiration, key);
 		new CcpTimeDecorator().sleep(1);
+		return this;
 	}
 
 	@SuppressWarnings("unchecked")

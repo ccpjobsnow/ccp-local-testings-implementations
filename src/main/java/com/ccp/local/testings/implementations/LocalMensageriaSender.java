@@ -11,7 +11,7 @@ public class LocalMensageriaSender implements CcpMensageriaSender {
 
 	}
 
-	public void send(String topic, String... msgs) {
+	public CcpMensageriaSender send(String topic, String... msgs) {
 
 		for (String msg : msgs) {
 			CcpJsonRepresentation messageDetails = new CcpJsonRepresentation(msg);
@@ -21,6 +21,7 @@ public class LocalMensageriaSender implements CcpMensageriaSender {
 //			}).start();
 			CcpAsyncTask.getProcess(topic).apply(messageDetails);
 		}
+		return this;
 	}
 
 }

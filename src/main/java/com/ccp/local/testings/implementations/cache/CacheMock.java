@@ -8,8 +8,8 @@ class CacheMock implements CcpCache {
 		return null;
 	}
 
-	public void put(String key, Object value, int secondsDelay) {
-
+	public CcpCache put(String key, Object value, int secondsDelay) {
+		return this;
 	}
 
 	public <V> V delete(String key) {

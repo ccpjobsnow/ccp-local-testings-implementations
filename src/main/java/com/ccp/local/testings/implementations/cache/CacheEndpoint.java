@@ -11,8 +11,9 @@ class CacheEndpoint implements CcpCache {
 	}
 
 	@Override
-	public void put(String key, Object value, int secondsDelay) {
+	public CcpCache put(String key, Object value, int secondsDelay) {
 		// DOUBT
+		return this;
 	}
 
 	@Override
