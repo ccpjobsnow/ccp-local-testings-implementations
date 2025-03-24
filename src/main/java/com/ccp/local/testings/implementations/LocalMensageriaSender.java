@@ -3,7 +3,7 @@ package com.ccp.local.testings.implementations;
 
 import com.ccp.decorators.CcpJsonRepresentation;
 import com.ccp.especifications.mensageria.sender.CcpMensageriaSender;
-import com.ccp.exceptions.process.CcpAsyncTask;
+import com.ccp.process.CcpAsyncTask;
 
 public class LocalMensageriaSender implements CcpMensageriaSender {
 
