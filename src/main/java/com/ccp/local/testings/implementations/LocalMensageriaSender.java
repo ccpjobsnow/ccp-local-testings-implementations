@@ -17,7 +17,7 @@ public class LocalMensageriaSender implements CcpMensageriaSender {
 			CcpJsonRepresentation messageDetails = new CcpJsonRepresentation(msg);
 //			new Thread(() -> {
 //				Function<CcpJsonRepresentation, CcpJsonRepresentation> process = CcpAsyncTask.getProcess(topic);
-//				process.apply(messageDetails);
+//				process.apply(messageDetails); 
 //			}).start();
 			CcpAsyncTask.getProcess(topic).apply(messageDetails);
 		}
