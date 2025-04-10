@@ -1,6 +1,5 @@
 package com.ccp.local.testings.implementations.cache;
 
-import com.ccp.dependency.injection.CcpDependencyInjection;
 import com.ccp.dependency.injection.CcpInstanceProvider;
 import com.ccp.especifications.cache.CcpCache;
 
@@ -26,8 +25,7 @@ public enum CcpLocalCacheInstances implements CcpInstanceProvider<CcpCache>{
 		}
 	}
 	;
-	public CcpInstanceProvider<CcpCache> getLocalImplementation(CcpInstanceProvider<?> businessInstanceProvider) {
-		CcpDependencyInjection.loadAllDependencies(businessInstanceProvider);
+	public CcpInstanceProvider<CcpCache> getLocalImplementation() {
 		return this;
 	}
 	

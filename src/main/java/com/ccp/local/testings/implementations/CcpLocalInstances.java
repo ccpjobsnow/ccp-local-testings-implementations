@@ -28,13 +28,12 @@ public enum CcpLocalInstances implements CcpInstanceProvider<Object>{
 
 	abstract public Object getInstance();
 	
-	public CcpInstanceProvider<Object> getLocalImplementation(CcpInstanceProvider<?> businessInstanceProvider) {
+	public CcpInstanceProvider<Object> getLocalImplementation() {
 		CcpDependencyInjection.loadAllDependencies(
 				new CcpElasticSerchDbBulk(), 
 				new CcpTelegramInstantMessenger(),
 				CcpLocalInstances.email
 );
-		CcpDependencyInjection.loadAllDependencies(businessInstanceProvider);
 		return this;
 	}
 }
